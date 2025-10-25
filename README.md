@@ -56,7 +56,6 @@ estilos centralizados con variables CSS en `:root`.
 # Compatibilidad y notas
 
 - `backdrop-filter` tiene soporte parcial en navegadores; Chrome, Edge y Safari recientes lo soportan mejor.
-- Si la página muestra scroll extra por los fondos animados, cambia `.blob` a `position: fixed` o ajusta sus dimensiones.
 - Footer fluye con el documento; si se solapa al añadir mucho contenido, asegúrate que `main` use `overflow: visible` (ya configurado).
 
 ---
@@ -71,7 +70,7 @@ estilos centralizados con variables CSS en `:root`.
 
 # Licencia y créditos
 
-- Diseño y código: tu proyecto personal. Adaptar y reutilizar libremente.
+- Diseño y código: JcDuro!. Adaptar y reutilizar libremente.
 - Fuentes: Google Fonts (Nunito).
 
 ---
