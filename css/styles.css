@@ -1,15 +1,20 @@
 /* ------------------------------------------------------------------------------------------------
 
-      _  _____ _____  _    _ _____   ____  
-     | |/ ____|  __ \| |  | |  __ \ / __ \ 
-     | | |    | |  | | |  | | |__) | |  | |
- _   | | |    | |  | | |  | |  _  /| |  | |
-| |__| | |____| |__| | |__| | | \ \| |__| |
- \____/ \_____|_____/ \____/|_|  \_\\____/ 
-                                           
-                                           
+     |  ___|  __ \  |   |  _ \   _ \   
+     | |      |   | |   | |   | |   |  
+ \   | |      |   | |   | __ <  |   |  
+\___/ \____| ____/ \___/ _| \_\\___/   
+                                       
+  ___|  _ \  __ \  ____|    _ )   _ _| __ \  ____|    \     ___|  
+ |     |   | |   | __|     _ \ \   |  |   | __|     _ \  \___ \  
+ |     |   | |   | |      ( `  <   |  |   | |      ___ \       | 
+\____|\___/ ____/ _____| \___/\/ ___|____/ _____|_/    _\_____/  
+
+  https://jcduro.bexartideas.com/index.php | 2025 | JC Duro Code & Ideas
 
 ------------------------------------------------------------------------------------------------ */
+  /* Reseteo básico para evitar margenes extra */
+
     :root{
       --bg-1: #1f1f47;
       --accent-a: rgba(47,184,255,0.42);
@@ -37,7 +42,7 @@
       -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
       /* Imagen de fondo */
-      background-image: url('cover.png'); /* Cambia por la ruta o URL de tu imagen */
+      background-image: url('../img/cover.png'); /* Cambia por la ruta o URL de tu imagen */
 
       /* Ajustes para que se adapte */
       background-size: cover;        /* Cubre toda la pantalla */
