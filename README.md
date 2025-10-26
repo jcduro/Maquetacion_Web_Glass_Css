@@ -25,6 +25,13 @@ estilos centralizados con variables CSS en `:root`.
 
 ---
 
+## 📊 Lenguajes y Herramientas
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,github,vscode,windows,&theme=light&perline=8)](https://skillicons.dev)
+
+
+---
+
 💾 Uso
 
 1. Coloca `web_glass.html` y `cover.png` en la misma carpeta.
