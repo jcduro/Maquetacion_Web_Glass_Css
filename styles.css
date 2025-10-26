@@ -1,0 +1,283 @@
+/* ------------------------------------------------------------------------------------------------
+
+      _  _____ _____  _    _ _____   ____  
+     | |/ ____|  __ \| |  | |  __ \ / __ \ 
+     | | |    | |  | | |  | | |__) | |  | |
+ _   | | |    | |  | | |  | |  _  /| |  | |
+| |__| | |____| |__| | |__| | | \ \| |__| |
+ \____/ \_____|_____/ \____/|_|  \_\\____/ 
+                                           
+                                           
+
+------------------------------------------------------------------------------------------------ */
+    :root{
+      --bg-1: #1f1f47;
+      --accent-a: rgba(47,184,255,0.42);
+      --accent-b: #5c9df1;
+      --glass-bg: linear-gradient(114deg, rgba(255,255,255,0.23) 40%, rgba(255,255,255,0.11) 100%);
+      --glass-border: 2px solid #fff;
+      --glass-shadow:  0 8px 32px rgba(31,38,135,0.28), inset 0 1.5px 5px rgba(255,255,255,0.18);
+      --glass-filter: blur(12px); 
+      --glass-backdrop: blur(12px);
+      --mirror: rgba(255, 255, 255, 0.2);
+      --text: whitesmoke;
+      --muted: rgba(255,255,255,0.75);
+      --accent-button: linear-gradient(90deg,#fa709a,#f3c4fb);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Nunito",sans-serif}
+
+    html,body{height:100%}
+    
+    body{
+      min-height:100vh;
+      background: var(--bg-1);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      /* Imagen de fondo */
+      background-image: url('cover.png'); /* Cambia por la ruta o URL de tu imagen */
+
+      /* Ajustes para que se adapte */
+      background-size: cover;        /* Cubre toda la pantalla */
+      background-position: center;   /* Centra la imagen */
+      background-repeat: no-repeat;  /* Evita que se repita */
+      background-attachment: fixed;  /* (Opcional) hace que la imagen quede fija al hacer scroll */
+    }
+
+
+      /* layout: usar min-height en lugar de height fijo para permitir que la pagina crezca */
+      .layout{
+        min-height: 100vh;            /* mantiene footer al fondo cuando hay poco contenido */
+        box-sizing: border-box;
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto; /* header / contenido / footer */
+        grid-template-columns: 250px 1fr;
+        gap: 24px;
+        padding: 28px;
+        z-index: 1;
+        align-items: start;
+      }
+
+    header{
+      grid-column:1/ -1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      z-index:5;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:52px;height:52px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent-a),var(--accent-b));
+      box-shadow: var(--glass-shadow);
+      display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.2rem;
+    }
+    h1.title{font-size:1.25rem;color:var(--text);font-weight:700}
+
+    /* hamburger */
+    .hamburger{
+      display:none;
+      background:transparent !important;
+      border:none;
+      color:var(--text);
+      font-size:1.6rem;
+      padding:10px;
+      cursor:pointer;
+      -webkit-appearance:none;
+      appearance:none;
+      border-radius:10px;
+      z-index:10;
+    }
+
+    /* glass common */
+    .glass{
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-filter);
+      -webkit-backdrop-filter: var(--glass-backdrop);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius:14px;
+      color:var(--text);
+    }
+
+
+      /* Reflejo extra */
+      .glass::before {
+        background: linear-gradient(125deg, rgba(255,255,255,0.38) 0%,rgba(255,255,255,0.07) 70%, transparent 100%);
+      }
+
+      /* aside: sin altura fija, se estira dentro de la fila central */
+      aside{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        align-self: stretch;
+        justify-self: stretch;
+        padding: 18px;
+        height: auto;
+        max-height: none;
+        overflow: auto;
+        position: relative;
+      }
+
+    .profile{
+      display:flex;gap:12px;align-items:center;margin-bottom:18px;
+    }
+
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#6be2b8,#1dc6ff);display:inline-block}
+    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    nav a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.06);color:var(--text)}
+
+    /* main: permitir que el contenido crezca y empuje el footer (no usar overflow:auto aquí) */
+    main{
+      grid-column: 2 / -1;
+      grid-row: 2 / 3;
+      padding: 18px;
+      min-height: 0;   /* importante para que el grid calcule correctamente */
+      overflow: visible; /* <- permitir crecimiento, no scroll interno */
+      position: relative;
+      z-index: 2;
+    }
+
+    .controls{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-bottom:14px}
+    .btn{ border:none;padding:10px 16px;border-radius:999px;background:var(--accent-button);color:#fff;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-filter);
+      position: relative; /* 👈 Necesario para que ::before se quede dentro */
+      overflow: hidden;   /* 👈 Evita que el reflejo se salga */
+      padding: 16px;
+      border: var(--glass-border);
+      border-radius: 12px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+
+
+    }
+
+
+
+      /* Efecto de escala */
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      /* Borde neón animado */
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0; /* cubre todo el contenedor */
+        border-radius: 20px;
+        padding: 2px; /* grosor del borde */
+        background: linear-gradient(
+          120deg,
+          transparent 0%,
+          var(--mirror) 50%,
+          transparent 100%
+        );
+        background-size: 200% 200%;
+        filter: blur(2px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+        /* Animación al hacer hover */
+        .card:hover::before {
+          opacity: 10;
+          animation: mirror 0.8s linear forwards;
+        }
+
+        /* Animación del brillo recorriendo el borde */
+        @keyframes mirror {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+  
+
+
+      /* footer: sigue en la última fila y fluye con el documento */
+      footer{
+        grid-column: 1 / -1;
+        padding: 14px 18px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+        /* no usar align-self: end aquí para que el footer fluya debajo del contenido */
+      }
+
+
+
+
+
+      /* responsive: aside como overlay en móvil; main ocupa la columna única y crece */
+      @media (max-width:1000px){
+        .layout{ grid-template-columns: 1fr; padding:18px; min-height:100vh; height:auto; }
+        aside{
+          position: fixed;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 280px;
+          transform: translateX(-110%);
+          transition: transform .28s ease, visibility .28s;
+          z-index: 1200;
+        }
+        aside.open{ transform: translateX(0); }
+        .hamburger{ display:inline-flex; align-items:center; justify-content:center; }
+        main{
+          grid-column: 1 / -1;
+          grid-row: 2 / 3;
+          padding-top: 12px;
+          overflow: visible;
+        }
+        html, body { height: auto; }
+      }
+
+
+
+    @media (max-width:600px){
+      .grid{ grid-template-columns: 1fr; }
+      .logo{ width:44px;height:44px;font-size:1rem }
+      h1.title{ font-size:1rem }
+      .card{ min-height:120px;padding:12px }
+    }
+
+    /* make all glass elements use same effect */
+    header .glass, aside.glass, main .glass, footer.glass, .card.glass{ 
+      background: var(--glass-bg); 
+      border:1px solid var(--glass-border); 
+      backdrop-filter: var(--glass-filter); 
+      -webkit-backdrop-filter: var(--glass-backdrop); 
+      box-shadow: var(--glass-shadow); 
+    }
+
+
+
+    /* small niceties */
+    ::-webkit-scrollbar{ height:8px; width:8px }
+    ::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.08); border-radius:8px }
