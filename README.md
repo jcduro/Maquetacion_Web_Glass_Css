@@ -23,7 +23,13 @@ estilos centralizados con variables CSS en `:root`.
 ## 🖼️ Vista previa
 ![Web_Glass](preview.gif)
 
----
+--- 
+
+## ✨ Pruevalo Online
+
+[Maquetacion_Web](https://jcduro.bexartideas.com/proyectos/maquetacion_web/index.html)
+
+--- 
 
 ## 📊 Lenguajes y Herramientas
 
