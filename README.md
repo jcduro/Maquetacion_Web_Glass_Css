@@ -25,7 +25,7 @@ estilos centralizados con variables CSS en `:root`.
 
 --- 
 
-## ✨ Pruevalo Online
+## ✨ Pruebalo Online
 
 [Maquetacion_Web](https://jcduro.bexartideas.com/proyectos/maquetacion_web/index.html)
 
